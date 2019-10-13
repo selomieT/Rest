@@ -5,6 +5,7 @@ import st.com.restfulwebservice.Model.Employeer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeerService {
@@ -25,6 +26,13 @@ public class EmployeerService {
 
     public void createEmployee(Employeer employeer){
         employeers.add(employeer);
+    }
+    public List<Employeer> getEmployeers(){
+        return employeers;
+    }
+    public Employeer getEmployer(String name){
+        Optional<Employeer>employeer=employeers.stream().filter(s->s.getName().equals(name)).findAny();
+        return employeer.orElse(null);
     }
 
 }
