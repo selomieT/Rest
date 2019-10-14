@@ -34,5 +34,25 @@ public class EmployeerService {
         Optional<Employeer>employeer=employeers.stream().filter(s->s.getName().equals(name)).findAny();
         return employeer.orElse(null);
     }
+    public void updateEmployee(String name,Employeer employeer){
+        for(int i=0;i<employeers.size();i++){
+            if(employeers.get(i).getName().equals(name)){
+                employeers.set(i,employeer);
+            }
+        }
+
+
+    }
+    public void deleteEmployee(String name){
+
+       Employeer employeer=null;
+       for(Employeer emp:employeers){
+           if(emp.getName().equals(name)){
+               employeer=emp;
+           }
+       }
+       employeers.remove(employeer);
+    }
+
 
 }

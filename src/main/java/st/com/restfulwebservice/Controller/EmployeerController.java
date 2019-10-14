@@ -1,9 +1,7 @@
 package st.com.restfulwebservice.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import st.com.restfulwebservice.Model.Employeer;
 import st.com.restfulwebservice.Service.EmployeerService;
 
@@ -21,6 +19,14 @@ public class EmployeerController {
     @GetMapping("/employers/{name}")
     public Employeer getEmployee(@PathVariable("name") String name){
         return employeerService.getEmployer(name);
+    }
+    @PostMapping("/employers")
+    public void createEmployee(@RequestBody Employeer employeer){
+        employeerService.createEmployee(employeer);
+    }
+    @DeleteMapping("/employeers/{name}")
+    public void deleteEmployee(@PathVariable("name")String name){
+        employeerService.deleteEmployee(name);
     }
 
 }
