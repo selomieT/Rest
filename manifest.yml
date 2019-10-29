@@ -1,0 +1,9 @@
+applications:
+- name: employee-rest-api
+  disk_quota: 1G
+  instances: 1
+  memory: 1G
+  routes:
+  path:target\restful-web-service-0.0.1-SNAPSHOT.jar
+  - route: employee-rest-api-responsible-springhare.cfapps.io
+  stack: cflinuxfs3
